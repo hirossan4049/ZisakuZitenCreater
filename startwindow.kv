@@ -1,0 +1,79 @@
+
+<StartWindow>:
+#    Button:
+#        text:"XXX!"
+
+
+
+    BoxLayout:
+        orientation:"vertical"
+
+        Label:
+            size_hint:None,None
+            size:1,50
+        Image:
+            source:"images/ZisakuZiten.jpg"
+            size_hint:None,None
+            size:300,300
+            pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+
+        Label:
+            size_hint:None,None
+            size:1,75
+
+        Label:
+            text:"自作辞典Creater"
+            font_size:"50dp"
+            size_hint_y:None
+        Label:
+            text:"Version 0.0.1 Alpha"
+            size_hint:None,None
+            color:0.8,0.8,0.8,1
+            pos_hint: {'center_x': 0.5}
+
+        BoxLayout:
+            BoxLayout:
+                orientation:"vertical"
+                Button:
+                    text:"新しく作成する                 "
+            #        on_release:root.btn_press()
+                    on_release:app.root.mainEditor_disp()
+                    text_size: self.size
+                    halign: 'right'
+                    background_color:0,0,0,0
+                    size_hint_y:None
+                Button:
+                    text:"既存のファイルから開く"
+                    text_size: self.size
+                    halign: 'right'
+                    size_hint_y:None
+                    background_color:0,0,0,0
+            Label:
+                size_hint:0.1,0.1
+            BoxLayout:
+                orientation:"vertical"
+                Button:
+                    text:"excel用のテンプレを作成する"
+                    text_size: self.size
+                    halign: 'left'
+                    size_hint_y:None
+                    background_color:0,0,0,0
+                Button:
+                    text:"excelファイルからjsonファイルに変換する"
+                    text_size: self.size
+                    halign: 'left'
+                    size_hint_y:None
+                    background_color:0,0,0,0
+
+        Label
+        BoxLayout:
+            orientation:"vertical"
+            Image:
+                source:"images/ZisakuZitenQR.png"
+                size_hint:None,None
+                size:200,200
+                pos_hint: {'center_x': 0.5}
+            Label:
+                text:"GooglePlay"
+                size_hint_y:None
+

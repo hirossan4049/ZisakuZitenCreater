@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.core.text import LabelBase, DEFAULT_FONT
+from kivy.core.window import Window
 from kivy.factory import Factory
 from kivy.lang import Builder
 from kivy.properties import StringProperty
@@ -52,6 +53,8 @@ class MainApp(App):
     def __init__(self, **kwargs):
         super(MainApp, self).__init__(**kwargs)
         self.title = "自作辞典Creator"
+        self.icon = "images/ZisakuZitenICON2.png"
+        Window.size = (900,600)
 
 
 if __name__ == '__main__':

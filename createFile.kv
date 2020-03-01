@@ -1,8 +1,46 @@
 <CreateFile>:
-    Button:
-        text:"createFIle"
-        on_release:root.onClick()
 
+    Label:
+        size_hint:None,None
+        text:"任意のフォルダーに好きなjsonファイルの名前を決めてください"
+        pos_hint: {'center_x': 0.5,"center_y":.7}
+
+    Label:
+        size_hint:None,None
+        pos_hint: {"center_x":.15,"center_y":.53}
+        text:"パス名&ファイル名"
+        color:.5,.5,.5,1
+
+    BoxLayout:
+        id:fileboxlayout
+        size_hint:None,None
+        pos_hint: {'center_x': 0.1,"center_y":.5}
+#        padding:100,10
+        TextInput:
+            id:pathInput
+            size_hint:None,None
+            size:700,60
+            text:"/noname.json"
+            cursor_color:0,0,0,1
+            hint_text:"PATHを入力 /test/test.json"
+#            pos_hint: {'center_x': 0.5,"center_y":.5}
+        Label:
+            size_hint:None,None
+            size:10,10
+        Button:
+            size_hint:None,None
+            size:100,60
+#            pos_hint: {'center_x': 0.5,"center_y":.5}
+            on_release:root.onClick()
+            Image:
+                source:"images/openfolder.png"
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+    Button:
+        size_hint:None,None
+        pos_hint: {'center_x': 0.8,"center_y":.1}
+        size:300,100
+        text:"作成して始める!"
 
 <SaveDialog>:
     text_input: text_input
@@ -12,21 +50,25 @@
         orientation: "vertical"
         FileChooserListView:
             id: filechooser
+            path:"~/"
+            filters:["*.json"]
             on_selection: text_input.text = self.selection and self.selection[0] or ''
 
         TextInput:
             id: text_input
             size_hint_y: None
+            text:"noname.json"
 #            height: 30
             multiline: False
+
 
         BoxLayout:
             size_hint_y: None
 #            height: 30
             Button:
-                text: "Cancel"
-                on_release: print("cancel")
+                text: "キャンセル"
+                on_release: root.cancel()
 
             Button:
-                text: "Save"
-                on_release: print(filechooser.path, text_input.text)
+                text: "作成"
+                on_release: root.ok_popup(filechooser.path, text_input.text)

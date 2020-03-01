@@ -22,7 +22,7 @@
             size:1,75
 
         Label:
-            text:"自作辞典Creater"
+            text:"自作辞典Creator"
             font_size:"50dp"
             size_hint_y:None
         Label:
@@ -37,7 +37,7 @@
                 Button:
                     text:"新しく作成する                 "
             #        on_release:root.btn_press()
-                    on_release:app.root.mainEditor_disp()
+                    on_release:app.root.createFile_disp()
                     text_size: self.size
                     halign: 'right'
                     background_color:0,0,0,0
@@ -49,7 +49,7 @@
                     size_hint_y:None
                     background_color:0,0,0,0
             Label:
-                size_hint:0.1,0.1
+                size_hint:0.4,0.1
             BoxLayout:
                 orientation:"vertical"
                 Button:

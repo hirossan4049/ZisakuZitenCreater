@@ -1,4 +1,4 @@
-自作辞典Creater
+自作辞典Creator
 ===
 `Version 0.0.1 Alpha`
 <br>

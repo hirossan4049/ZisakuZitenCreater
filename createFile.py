@@ -1,4 +1,4 @@
-import re
+
 
 from kivy.properties import StringProperty, Clock, ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
@@ -32,7 +32,7 @@ class CreateFile(FloatLayout):
         self._popup.open()
 
     def ok_popup(self, path, filename):
-        print(path, filename)
+        # print(path, filename)
         # if Not Json file
         filenamelist = filename.split(".")
         if not filenamelist[-1] == "json":
@@ -40,3 +40,4 @@ class CreateFile(FloatLayout):
 
         self.ids.pathInput.text = path + "/" + filename
         self.dismiss_popup()
+

@@ -1,20 +1,25 @@
 <CreateFile>:
+    Image:
+        size_hint:None,None
+        source:"images/ZisakuZitenICON3.png"
+        size:300,300
+        pos_hint: {'center_x': 0.5,"center_y":.8}
 
     Label:
         size_hint:None,None
         text:"任意のフォルダーに好きなjsonファイルの名前を決めてください"
-        pos_hint: {'center_x': 0.5,"center_y":.7}
+        pos_hint: {'center_x': 0.5,"center_y":.6}
 
     Label:
         size_hint:None,None
-        pos_hint: {"center_x":.15,"center_y":.53}
+        pos_hint: {"center_x":.15,"center_y":.43}
         text:"パス名&ファイル名"
         color:.5,.5,.5,1
 
     BoxLayout:
         id:fileboxlayout
         size_hint:None,None
-        pos_hint: {'center_x': 0.1,"center_y":.5}
+        pos_hint: {'x': 0.3,"y":.4}
 #        padding:100,10
         TextInput:
             id:pathInput
@@ -40,6 +45,7 @@
         size_hint:None,None
         pos_hint: {'center_x': 0.8,"center_y":.1}
         size:300,100
+        on_release:app.root.maineditor_disp(pathInput.text)
         text:"作成して始める!"
 
 <SaveDialog>:

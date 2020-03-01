@@ -1,4 +1,82 @@
 <MainEditor>:
+    padding:80,80
+    orientation:"vertical"
+    BoxLayout:
+#        size_hint:None,None
+        Button:
+            size_hint:None,None
+            pos_hint: {'center_y': 1}
+            text:"戻る"
+            on_release:app.root.startwindow_disp()
+
+        Label:
+            size_hint:None,None
+            size:30,0
+
+        TextInput:
+            size_hint:None,None
+            pos_hint: {'center_y': 1}
+            size:500,100
+            id:title
+            text:"タイトル"
+            multiline:False
+            hint_text:"title"
+
+        Label:
+            id:status
+#            size_hint:.3,.1
+            pos_hint: {'center_y': 1}
+            text:"*未保存"
+
+        Label:
+            size_hint:1,.01
+            text:""
+
+        Button:
+            size_hint:None,None
+            size:200,100
+            pos_hint: {'center_y': 1}
+            text:"保存 (Ctrl + S)"
+
+
+    RecycleView:
+        id: rv
+#        scroll_type: ['bars', 'content']
+#        scroll_wheel_distance: sp(60) #スクロール速度
+#        bar_width: sp(10)
+        viewclass: 'ListItem'
+        RecycleBoxLayout:
+            id:rvbox
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: 'vertical'
+            spacing: dp(8)
     Button:
-        text:"MainEditor"
-        on_release:app.root.startwindow_disp()
+        size_hint_y:.1
+        text:"+"
+        on_release:root.add()
+
+
+
+<ListItem>:
+    id:listitem
+    spacing:dp(8)
+#    index:""
+#    ztitle:""
+#    zcontent:""
+    Label:
+#        text:root.index
+        size_hint:None,None
+        size:30,70
+        text:root.index
+    TextInput:
+        id:ztitleInput
+        size_hint:.3,None
+        size:300,70
+        text:root.ztitle
+    TextInput:
+        id:zcontentInput
+        size_hint:.3,None
+        size:300,70
+        text:root.zcontent

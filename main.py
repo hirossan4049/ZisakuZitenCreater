@@ -46,6 +46,7 @@ class MainRoot(BoxLayout):
 
     def maineditor_disp(self, path):
         self.clear_widgets()
+        self.mainEditor.read(path)
         self.add_widget(self.mainEditor)
 
 
